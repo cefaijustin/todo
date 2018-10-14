@@ -27,12 +27,13 @@ button {
 }
 
 body {
-	font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-family: 'Inconsolata', monospace;
+	font-size: 14px;
 	line-height: 1.4em;
 	background: #f5f5f5;
 	color: #4d4d4d;
 	min-width: 230px;
-	max-width: 550px;
+	max-width: 500px;
 	margin: 0 auto;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -49,7 +50,7 @@ body {
 
 .todoapp {
 	background: #fff;
-	margin: 130px 0 40px 0;
+	margin: 230px 0 40px 0;
 	position: relative;
 	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2),
 	            0 25px 50px 0 rgba(0, 0, 0, 0.1);
@@ -75,17 +76,42 @@ body {
 
 .todoapp h1 {
 	position: absolute;
-	top: -155px;
+	top: -255px;
 	width: 100%;
-	font-size: 100px;
+	font-size: 140px;
+	text-align: center;
+	font-weight: normal;
+	color: black;
+	text-shadow: 2px 2px 3px rgba(175, 47, 47, 0.15);
+	-webkit-text-rendering: optimizeLegibility;
+	-moz-text-rendering: optimizeLegibility;
+	text-rendering: optimizeLegibility;
+	transition: all ease-in-out 0.15s;
+}
+
+.todoapp h1:hover {
+	transform: scale(1.03);
+}
+
+.fa i {
+	color: white;
+	font-size: 30px;
+	text-shadow: 1px 1px black;
+}
+
+.todoapp h3 {
+	top: -70px;
+	position: absolute;
+	margin-bottom: 40px;
+	width: 100%;
+	font-size: 15px;
 	font-weight: 100;
 	text-align: center;
-	color: rgba(175, 47, 47, 0.15);
+	color: black;
 	-webkit-text-rendering: optimizeLegibility;
 	-moz-text-rendering: optimizeLegibility;
 	text-rendering: optimizeLegibility;
 }
-
 .new-todo,
 .edit {
 	position: relative;
@@ -228,30 +254,31 @@ body {
 }
 
 .todo-list li .destroy {
-	display: none;
+	text-align: center;
+	text-decoration: none;
+	display: block;
 	position: absolute;
 	top: 0;
 	right: 10px;
 	bottom: 0;
 	width: 40px;
 	height: 40px;
-	margin: auto 0;
-	font-size: 30px;
-	color: #cc9a9a;
+	margin-top: 20px;
+	font-size: 20px;
+	color: red;
 	margin-bottom: 11px;
-	transition: color 0.2s ease-out;
+	transition: all 0.2s ease-in-out;
+	opacity: 0.3;
 }
 
 .todo-list li .destroy:hover {
-	color: #af5b5e;
+	transform: scale(1.4);
+	opacity: 1;
+	font-weight: bold;
 }
 
 .todo-list li .destroy:after {
 	content: '×';
-}
-
-.todo-list li:hover .destroy {
-	display: block;
 }
 
 .todo-list li .edit {
@@ -334,7 +361,7 @@ html .clear-completed:active {
 }
 
 .clear-completed:hover {
-	text-decoration: underline;
+	text-decoration: none;
 }
 
 .info {
@@ -385,12 +412,15 @@ html .clear-completed:active {
 }
 
 .author {
+	font-size: 12px;
+	font-weight: lighter;
 	text-align: center;
 	margin-bottom: 20px;
 }
 
 .author a {
-	color: #b83f45;
+	color: black;
+	text-decoration: none;
 }
 
 
