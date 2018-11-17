@@ -27,10 +27,10 @@ button {
 }
 
 body {
-	padding-top: 20px;
+	padding-top: 70px;
 	font-family: 'Inconsolata', monospace;
 	font-size: 14px;
-	line-height: 1.4em;
+	line-height: 2em;
 	background: #f5f5f5;
 	color: #4d4d4d;
 	min-width: 230px;
@@ -77,7 +77,7 @@ body {
 
 .todoapp h1 {
 	position: absolute;
-	top: -300px;
+	top: -320px;
 	width: 100%;
 	font-size: 140px;
 	text-align: center;
@@ -101,9 +101,9 @@ body {
 }
 
 .todoapp h3 {
-	top: -100px;
+	top: -110px;
 	position: absolute;
-	margin-bottom: 40px;
+	margin-bottom: 50px;
 	width: 100%;
 	font-size: 15px;
 	font-weight: 100;
@@ -118,10 +118,11 @@ body {
 	position: relative;
 	margin: 0;
 	width: 100%;
-	font-size: 24px;
+	height: 130px;
+	font-size: 28px;
 	font-family: inherit;
 	font-weight: inherit;
-	line-height: 1.4em;
+	line-height: 1.8em;
 	border: 0;
 	color: inherit;
 	padding: 6px;
@@ -157,7 +158,7 @@ body {
 
 .toggle-all + label {
 	width: 60px;
-	height: 34px;
+	height: 20px;
 	font-size: 0;
 	position: absolute;
 	top: -52px;
@@ -185,7 +186,7 @@ body {
 
 .todo-list li {
 	position: relative;
-	font-size: 24px;
+	font-size: 36px;
 	border-bottom: 1px solid #ededed;
 }
 
@@ -244,7 +245,7 @@ body {
 	word-break: break-all;
 	padding: 15px 15px 15px 60px;
 	display: block;
-	line-height: 1.2;
+	line-height: 2;
 	transition: color 0.4s;
 }
 
@@ -258,15 +259,15 @@ body {
 	text-decoration: none;
 	display: block;
 	position: absolute;
-	top: 0;
+	top: 18px;
 	right: 10px;
 	bottom: 0;
-	width: 40px;
-	height: 40px;
-	margin-top: 20px;
-	font-size: 20px;
+	width: 50px;
+	height: 50px;
+	margin-top: 38px;
+	font-size: 40px;
 	color: red;
-	margin-bottom: 11px;
+	margin-bottom: 2px;
 	transition: all 0.2s ease-in-out;
 	opacity: 0.3;
 }
@@ -396,6 +397,24 @@ html .clear-completed:active {
 		background: none;
 	}
 
+	.new-todo,
+.edit {
+	position: relative;
+	margin: 0;
+	width: 100%;
+	font-size: 24px;
+	font-family: inherit;
+	font-weight: inherit;
+	line-height: 4em;
+	border: 0;
+	color: inherit;
+	padding: 6px;
+	border: 1px solid #999;
+	box-shadow: inset 0 -1px 5px 0 rgba(0, 0, 0, 0.2);
+	box-sizing: border-box;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
 	.todo-list li .toggle {
 		height: 40px;
 	}
@@ -413,6 +432,14 @@ html .clear-completed:active {
 	.header {
 		margin-top: 90px !important;
 	}
+
+	.todo-list li label {
+	word-break: break-all;
+	padding: 15px 15px 15px 60px;
+	display: block;
+	line-height: 3;
+	transition: color 0.4s;
+}
 }
 
 @media (max-width: 430px) {
