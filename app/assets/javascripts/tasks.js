@@ -1,18 +1,37 @@
-$(function(){
+
+$(document).ready(function(){ // <--  IS THIS NECESSARY IF JS HAS OWN FILE?
+	function xyz() {
+		console.log(1);
+		foo()
+		console.log(2);
+	}
+	
+	function foo() {
+		console.log(3)
+		bar()
+		console.log(4)
+	}
+
+	function bar() {
+		console.log(5)
+	}
+	xyz();
 		// The taskHtml method takes in a Jacascript representation
 		// of the task and produces an HTML representation using
 		// <li> tags
+
 		function taskHtml(task) {
 			var checkedStatus = task.done ? "checked" : "";
 			var liClass = task.done ? "completed" : "";
+			
+			var liElement = '<li id="listItem-' + task.id + '" class="' + liClass + '">' +
+			'<div class="view"><input class="toggle" type="checkbox"' + " data-id='" +
+			task.id + "'" + checkedStatus + ' /><label>' + task.title + 
+			'</label><a class="destroy" rel="nofollow" data-method="delete" href="/tasks/' + task.id + 
+			'"></a></div></li>';
 
-			  var liElement = '<li id="listItem-' + task.id + '" class="' + liClass + '">' +
-			  '<div class="view"><input class="toggle" type="checkbox"' + " data-id='" +
-			  task.id + "'" + checkedStatus + ' /><label>' + task.title +
-			  '</label><a data-confirm="Are you sure you want to delete this?" ' + 
-			  'class="destroy" rel="nofollow" data-method="delete" href="/tasks/' + task.id + 
-			  '"></a></div></li>';	
 			return liElement;	
+
 		}
 
 		// toggleTask takes in an HTML representation of 
@@ -38,6 +57,22 @@ $(function(){
 			} );
 		}
 
+		
+		function deleteTask(e) {
+			e.preventDefault();
+
+			var itemId = $(e.target).data("id");
+
+			$.ajax("/tasks/" + itemId, {
+				_method: "DELETE",
+			}).success(function(data) {
+				var liHtml = taskHtml(data);
+				var $li = $("#listItem-" + data.id);
+				$li.replaceWith('');
+			} );
+		}
+	
+
 		$.get("/tasks").success( function( data ) {
 			var htmlString = "";
 			$.each(data, function(index, task) {
@@ -48,7 +83,11 @@ $(function(){
 			ulTodos.html(htmlString);
 
 			$('.toggle').change(toggleTask);
+
+			$('.destroy').click(deleteTask);
 		});
+
+
 
 		$('#new-form').submit(function(event) {
 			event.preventDefault();
@@ -66,17 +105,5 @@ $(function(){
 				$('.new-todo').val('');
 			});
 		});
-	
-			$.delete("/tasks" + itemId, {
-				_method: "DELETE",
-				task: {
-					done: delteValue
-				}
-			}).click(function(event) {
-  			var liHtml = taskHtml(data);
-				var $li = $("#listItem-" + data.id);
-				$li.replaceWith(liHtml);
-				$('.delete').delete(toggleTask);
-			} );
 
 });
